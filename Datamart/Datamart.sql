@@ -11,8 +11,8 @@ CREATE TABLE [TestSchema].[User]
 (
     User_ID int identity(1,1) PRIMARY KEY NOT NULL,
     User_Name nvarchar(max) NOT NULL,
-    User_Password nvarchar(max) NOT NULL,
-    User_Type nvarchar(30) NOT NULL
+    User_Password smallint NOT NULL,
+    User_Type bit NOT NULL
 )
 GO
 
@@ -76,7 +76,7 @@ CREATE TABLE [TestSchema].[Summative]
 )
 GO
 
-/* Diagram connection hub - 3rd normalized form table */
+/* Diagram connection hub - facts table*/
 CREATE TABLE [TestSchema].[LUConnect]
 (
     LUConnect_ID int identity(1,1) PRIMARY KEY NOT NULL,
