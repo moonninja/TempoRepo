@@ -6,6 +6,7 @@ GO
 
 CREATE SCHEMA [TestSchema]
 GO
+
 /*Diagram flow 1*/
 CREATE TABLE [TestSchema].[User]
 (
@@ -32,6 +33,32 @@ CREATE TABLE [TestSchema].[LearningUnit]
 )
 GO
 
+CREATE TABLE [TestSchema].[International]
+(
+    International_ID int identity(1,1) PRIMARY KEY NOT NULL,
+    International_Mark int null,
+    International_Pass varchar(5) null, /*Pass or Fail*/
+    LearningUnit_ID int FOREIGN KEY REFERENCES [TestSchema].[LearningUnit](LearningUnit_ID) 
+)
+GO
+
+CREATE TABLE [TestSchema].[Formative]
+(
+    Formative_ID int identity(1,1) PRIMARY KEY NOT NULL,
+    Formative_Mark int null,
+    Formative_Pass varchar(5) null, /*Pass or Fail*/
+    LearningUnit_ID int FOREIGN KEY REFERENCES [TestSchema].[LearningUnit](LearningUnit_ID) 
+)
+GO
+
+CREATE TABLE [TestSchema].[Summative]
+(
+    Summative_ID int identity(1,1) PRIMARY KEY NOT NULL,
+    Summative_Mark int null,
+    Summative_Pass varchar(5) null, /*Pass or Fail*/
+    LearningUnit_ID int FOREIGN KEY REFERENCES [TestSchema].[LearningUnit](LearningUnit_ID) 
+)
+GO
 /*Diagram flow 2*/
 CREATE TABLE [TestSchema].[StudentGaurdian]
 (
@@ -50,40 +77,11 @@ CREATE TABLE [TestSchema].[Student]
     StudentGaurdian_ID int FOREIGN KEY REFERENCES [TestSchema].[StudentGaurdian](StudentGaurdian_ID)
 )
 GO
-
-/*Diagram solo flow*/
-CREATE TABLE [TestSchema].[International]
-(
-    International_ID int identity(1,1) PRIMARY KEY NOT NULL,
-    International_Mark int null,
-    International_Pass varchar(5) null /*Pass or Fail*/
-)
-GO
-
-CREATE TABLE [TestSchema].[Formative]
-(
-    Formative_ID int identity(1,1) PRIMARY KEY NOT NULL,
-    Formative_Mark int null,
-    Formative_Pass varchar(5) null /*Pass or Fail*/
-)
-GO
-
-CREATE TABLE [TestSchema].[Summative]
-(
-    Summative_ID int identity(1,1) PRIMARY KEY NOT NULL,
-    Summative_Mark int null,
-    Summative_Pass varchar(5) null /*Pass or Fail*/
-)
-GO
-
 /* Diagram connection hub - facts table*/
 CREATE TABLE [TestSchema].[LUConnect]
 (
     LUConnect_ID int identity(1,1) PRIMARY KEY NOT NULL,
     Student_ID int FOREIGN KEY REFERENCES [TestSchema].[Student](Student_ID),
-    Summative_ID int FOREIGN KEY REFERENCES [TestSchema].[Summative](Summative_ID),
-    Formative_ID int FOREIGN KEY REFERENCES [TestSchema].[Formative](Formative_ID),
-    International_ID int FOREIGN KEY REFERENCES [TestSchema].[International](International_ID),
-    LearningUnit_ID int FOREIGN KEY REFERENCES [TestSchema].[LearningUnit](LearningUnit_ID)
+    Course_ID int FOREIGN KEY REFERENCES [TestSchema].[Course](Course_ID)
 )
 GO
