@@ -36,8 +36,7 @@ GO
 CREATE TABLE [TestSchema].[International]
 (
     International_ID int identity(1,1) PRIMARY KEY NOT NULL,
-    International_Mark int null,
-    International_Pass varchar(5) null, /*Pass or Fail*/
+    International_Name nvarchar(max),
     LearningUnit_ID int FOREIGN KEY REFERENCES [TestSchema].[LearningUnit](LearningUnit_ID) 
 )
 GO
@@ -45,8 +44,7 @@ GO
 CREATE TABLE [TestSchema].[Formative]
 (
     Formative_ID int identity(1,1) PRIMARY KEY NOT NULL,
-    Formative_Mark int null,
-    Formative_Pass varchar(5) null, /*Pass or Fail*/
+    Formative_Name nvarchar(max),
     LearningUnit_ID int FOREIGN KEY REFERENCES [TestSchema].[LearningUnit](LearningUnit_ID) 
 )
 GO
@@ -54,8 +52,7 @@ GO
 CREATE TABLE [TestSchema].[Summative]
 (
     Summative_ID int identity(1,1) PRIMARY KEY NOT NULL,
-    Summative_Mark int null,
-    Summative_Pass varchar(5) null, /*Pass or Fail*/
+    Summative_Name nvarchar(max),
     LearningUnit_ID int FOREIGN KEY REFERENCES [TestSchema].[LearningUnit](LearningUnit_ID) 
 )
 GO
@@ -75,6 +72,15 @@ CREATE TABLE [TestSchema].[Student]
     Student_Surname nvarchar(max) NOT NULL,
     Student_DateOfBirth date NOT NULL,
     StudentGaurdian_ID int FOREIGN KEY REFERENCES [TestSchema].[StudentGaurdian](StudentGaurdian_ID)
+)
+GO
+
+CREATE TABLE [TestSchema].StudentMarks 
+(
+	StudentMark_ID int identity(1,1) not null,
+	StudentMark_TypeID int,
+	StudentMark_Mark int,
+	Student_ID int FOREIGN KEY REFERENCES [TestSchema].[Student](Student_ID)
 )
 GO
 /* Diagram connection hub - facts table*/
