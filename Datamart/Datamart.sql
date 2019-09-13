@@ -77,9 +77,9 @@ GO
 
 CREATE TABLE [TestSchema].StudentMarks 
 (
-	StudentMark_ID int identity(1,1) not null,
+	StudentMark_ID int identity(1,1) PRIMARY KEY NOT NULL,
 	StudentMark_Type nvarchar(max),
-    StudentMark_TypeID null,
+    StudentMark_TypeID int null,
 	StudentMark_Mark int,
 	Student_ID int FOREIGN KEY REFERENCES [TestSchema].[Student](Student_ID)
 )
