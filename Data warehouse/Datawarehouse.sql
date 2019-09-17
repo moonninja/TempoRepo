@@ -16,7 +16,7 @@ CREATE TABLE [Course]
     Course_ID int NOT NULL,
     Campus_ID int FOREIGN KEY REFERENCES [Campus] (Campus_ID),
     Course_Name nvarchar(max) NOT NULL,
-    PRIMARY KEY (Course_ID,Campus_ID)
+    /*PRIMARY KEY (Course_ID,Campus_ID)*/
 )
 GO
 
@@ -27,7 +27,7 @@ CREATE TABLE [Student]
     Student_Name nvarchar(max) NOT NULL,
     Student_Surname nvarchar(max) NOT NULL,
     Student_DateOfBirth date NOT NULL,
-    PRIMARY KEY (Student_ID,Campus_ID)
+    /*PRIMARY KEY (Student_ID,Campus_ID)*/
 )
 GO
 
@@ -37,7 +37,7 @@ CREATE TABLE [Facilitator]
     Facilitator_ID int NOT NULL,
     Campus_ID int FOREIGN KEY REFERENCES [Campus] (Campus_ID),
     Facilitator_Name nvarchar(max) NOT NULL,
-    PRIMARY KEY (Facilitator_ID,Campus_ID)
+    /*PRIMARY KEY (Facilitator_ID,Campus_ID)*/
 )
 GO
 
@@ -49,11 +49,18 @@ CREATE TABLE [Mark]
 	Student_ID int NOT NULL,
 	Course_ID int NOT NULL,
 	Facilitator_ID int NOT NULL,
-    FOREIGN KEY (Student_ID,Campus_ID) REFERENCES [Student](Student_ID,Campus_ID),
+    /*FOREIGN KEY (Student_ID,Campus_ID) REFERENCES [Student](Student_ID,Campus_ID),
 	FOREIGN KEY (Course_ID,Campus_ID) REFERENCES Course(Course_ID,Campus_ID),
-	FOREIGN KEY (Facilitator_ID,Campus_ID) REFERENCES Facilitator(Facilitator_ID,Campus_ID),
+	FOREIGN KEY (Facilitator_ID,Campus_ID) REFERENCES Facilitator(Facilitator_ID,Campus_ID),*/
     Campus_ID int FOREIGN KEY REFERENCES [Campus](Campus_ID),
     Mark_Final smallint NULL,
     Mark_Pass varchar(10) NOT NULL
 )
 GO
+
+/*Campus Data*/
+INSERT INTO [Campus] values ('TestSchema');
+INSERT INTO [Campus] values ('Pretoria');
+INSERT INTO [Campus] values ('Bloemfontein');
+INSERT INTO [Campus] values ('Polokwane');
+INSERT INTO [Campus] values ('Rustenburg');
