@@ -21,37 +21,37 @@ insert into [Rustenburg].[LearningUnit] (LearningUnit_Name, Course_ID) values ('
 insert into [Rustenburg].[LearningUnit] (LearningUnit_Name, Course_ID) values ('LU 2', 3);
 
 /*Summatives-formatives-internationals*/
-insert into [Rustenburg].[Summative] values ("Summative1",1);
-insert into [Rustenburg].[Summative] values ("Summative1",2);
-insert into [Rustenburg].[Summative] values ("Summative1",3);
-insert into [Rustenburg].[Summative] values ("Summative2",3);
+insert into [Rustenburg].[Summative] values ('Summative1',1);
+insert into [Rustenburg].[Summative] values ('Summative1',2);
+insert into [Rustenburg].[Summative] values ('Summative1',3);
+insert into [Rustenburg].[Summative] values ('Summative2',3);
  
-insert into [Rustenburg].[Formative] values ("Formative1",1);
-insert into [Rustenburg].[Formative] values ("Formative1",2);
-insert into [Rustenburg].[Formative] values ("Formative1",3);
-insert into [Rustenburg].[Formative] values ("Formative2",3);
+insert into [Rustenburg].[Formative] values ('Formative1',1);
+insert into [Rustenburg].[Formative] values ('Formative1',2);
+insert into [Rustenburg].[Formative] values ('Formative1',3);
+insert into [Rustenburg].[Formative] values ('Formative2',3);
 
-insert into [Rustenburg].[International] values ("International1",1);
-insert into [Rustenburg].[International] values ("International1",2);
-insert into [Rustenburg].[International] values ("International1",3);
-insert into [Rustenburg].[International] values ("International2",3);
+insert into [Rustenburg].[International] values ('International1',1);
+insert into [Rustenburg].[International] values ('International1',2);
+insert into [Rustenburg].[International] values ('International1',3);
+insert into [Rustenburg].[International] values ('International2',3);
 
 /*LU Connect*/
 insert into [Rustenburg].[LUConnect] (Student_ID, Course_ID) values (1, 3);
 insert into [Rustenburg].[LUConnect] (Student_ID, Course_ID) values (2, 2);
 insert into [Rustenburg].[LUConnect] (Student_ID, Course_ID) values (3, 1);
 /*Student Marks*/
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Summative1",3,65,1);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Summative2",4,62,1);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Formative1",3,65,1);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Formative2",4,62,1);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("International1",3,65,1);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("International1",4,62,1);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Summative1",2,65,2);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Formative1",2,62,2);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("International1",2,82,2);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Summative1",1,65,3);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("Formative1",1,62,3);
-insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ("International1",1,82,3);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Summative1',3,65,1);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Summative2',4,62,1);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Formative1',3,65,1);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Formative2',4,62,1);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('International1',3,65,1);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('International1',4,62,1);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Summative1',2,65,2);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Formative1',2,62,2);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('International1',2,82,2);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Summative1',1,65,3);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('Formative1',1,62,3);
+insert into [Rustenburg].[StudentMarks] (StudentMark_Type,StudentMark_TypeID,StudentMark_Mark,Student_ID) values ('International1',1,82,3);
 
 
