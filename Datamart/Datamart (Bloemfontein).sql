@@ -92,3 +92,103 @@ CREATE TABLE [Bloemfontein].[LUConnect]
     Course_ID int FOREIGN KEY REFERENCES [Bloemfontein].[Course](Course_ID)
 )
 GO
+
+/*ALL PRIMARY KEYS ACT AS CLUSTERED INDEXES*/
+/*Non-clustered indexes*/
+CREATE NONCLUSTERED INDEX IX_Student_StudentID
+ON [Bloemfontein].[Student](Student_ID)
+GO
+CREATE NONCLUSTERED INDEX IX_USER_User_ID
+ON [Bloemfontein].[User](User_ID)
+GO
+CREATE NONCLUSTERED INDEX IX_LUConnect_LUConnect_ID
+ON [Bloemfontein].[LUConnect](LUConnect_ID)
+GO
+/*Stored Procedures*/
+CREATE PROCEDURE [Bloemfontein].StudentList @studentId int
+AS
+SELECT	luc.LUConnect_ID,
+		luc.Course_ID,
+		s.Student_ID,
+		s.Student_Name,
+		s.Student_Surname,
+		s.Student_DateOfBirth	
+FROM [Bloemfontein].LUConnect luc
+JOIN [Bloemfontein].[Student] s
+on luc.Student_ID = s.Student_ID
+WHERE s.Student_ID = @studentId 
+GO
+
+CREATE PROCEDURE [Bloemfontein].UserStudentList @userid int
+AS
+SELECT	s.Student_ID,
+		s.Student_Name,
+		s.Student_Surname,
+		s.Student_DateOfBirth	
+FROM [Bloemfontein].LUConnect luc
+JOIN [Bloemfontein].[Student] s
+on luc.Student_ID = s.Student_ID
+join [Bloemfontein].Course c
+on luc.Course_ID = c.Course_ID
+WHERE c.User_ID = @userid 
+GO
+
+CREATE PROCEDURE [Bloemfontein].CourseList @userid int
+AS
+SELECT	c.Course_ID,
+		c.Course_Name	
+FROM [Bloemfontein].[User] u
+join [Bloemfontein].Course c
+on u.User_ID = c.User_ID
+WHERE c.User_ID = @userid 
+GO
+
+/*Functions*/
+CREATE FUNCTION [Bloemfontein].StudentAge()
+RETURNS int
+AS
+BEGIN
+return (
+SELECT (YEAR(GETDATE()) - YEAR(Student_DateOfBirth) )
+FROM [Bloemfontein].Student
+)
+END
+GO
+CREATE FUNCTION [Bloemfontein].StudentGaurdianCountryCount()
+RETURNS int
+AS
+BEGIN
+return (
+SELECT COUNT(StudentGaurdian.StudentGaurdian_ID)
+FROM [Bloemfontein].[StudentGaurdian]
+)
+END
+GO
+CREATE FUNCTION [Bloemfontein].AdminCount()
+RETURNS int
+AS
+BEGIN
+return (
+SELECT COUNT(User_ID)
+FROM [Bloemfontein].[User]
+WHERE User_Type = 0
+)
+END
+GO
+/*Views*/
+CREATE VIEW [Bloemfontein].AllLearningUnits
+AS
+SELECT * FROM [Bloemfontein].[LearningUnit]
+GO
+CREATE VIEW [Bloemfontein].AllSumamtives
+AS
+SELECT * FROM [Bloemfontein].Summative
+GO
+CREATE VIEW [Bloemfontein].AllFormativs
+AS
+SELECT * FROM [Bloemfontein].Formative
+GO
+CREATE VIEW [Bloemfontein].AllInternationals
+AS
+SELECT * FROM [Bloemfontein].International
+GO
